@@ -17,7 +17,7 @@ public class ProductProfileImplTest {
     ProductProfile productProfile;
 
     @Test
-    void testCreateCloudVendor(){
+    void testCreateProductProfile(){
         mock(ProductProfile.class);
         mock(ProductProfileRepository.class);
 
