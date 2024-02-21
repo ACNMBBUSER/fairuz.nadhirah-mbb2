@@ -13,4 +13,16 @@ public class ProductProfileException {
         this.throwable = throwable;
         this.httpStatus = httpStatus;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Throwable getThrowable() {
+        return throwable;
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
 }

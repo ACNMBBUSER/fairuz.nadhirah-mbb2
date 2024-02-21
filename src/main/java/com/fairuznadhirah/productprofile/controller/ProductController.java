@@ -20,7 +20,8 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/{id}")
+    // Read Specific Product details
+    @GetMapping("/{productId}")
     @ApiOperation(value = "Product id", notes = "Provide product details",
                     response = ResponseEntity.class)
     public ResponseEntity<Object> getProductDetails(@PathVariable("id") String productId){
@@ -28,6 +29,7 @@ public class ProductController {
                 HttpStatus.OK, productService.getProduct(productId));
     }
 
+    // Read All Product details
     @GetMapping("/")
     public List<ProductProfile> getAllProductDetails()
     {

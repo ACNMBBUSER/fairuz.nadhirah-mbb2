@@ -1,7 +1,6 @@
 package com.fairuznadhirah.productprofile.service;
 
 import com.fairuznadhirah.productprofile.model.UserProfile;
-//import com.fairuznadhirah.productprofile.repository.TokenRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -10,19 +9,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import javax.xml.crypto.Data;
-import java.security.Key;
 import java.util.Date;
 import java.util.function.Function;
 
 @Service
 public class JwtService {
     private final String SECRET_KEY = "1afc9ace3a7b97465d9368d836e2f952746ad3e7b585774db1cd3f35a4befd3f";
-//    private final TokenRepository tokenRepository;
-
-//    public JwtService(TokenRepository tokenRepository){
-//        this.tokenRepository = tokenRepository;
-//    }
 
     public String extractUsername(String token){
         return extractClaim(token, Claims::getSubject);

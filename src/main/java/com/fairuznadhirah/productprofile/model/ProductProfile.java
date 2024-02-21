@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "product_info")
+@Table(name = "productprofile") //will be created in database
 @ApiModel(description = "This table for product information")
 public class ProductProfile {
 

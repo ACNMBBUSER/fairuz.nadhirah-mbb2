@@ -1,6 +1,8 @@
 package com.fairuznadhirah.productprofile.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.antlr.v4.runtime.Token;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,6 +13,8 @@ import java.util.List;
 
 
 @Entity
+@Getter
+@Setter
 @Table(name = "user")
 public class UserProfile implements UserDetails {
 
@@ -30,29 +34,6 @@ public class UserProfile implements UserDetails {
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
-
-//    @OneToMany(mappedBy = "user")
-//    private List<Token> token;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -99,11 +80,4 @@ public class UserProfile implements UserDetails {
         this.role = role;
     }
 
-//    public List<Token> getToken() {
-//        return token;
-//    }
-//
-//    public void setToken(List<Token> token) {
-//        this.token = token;
-//    }
 }

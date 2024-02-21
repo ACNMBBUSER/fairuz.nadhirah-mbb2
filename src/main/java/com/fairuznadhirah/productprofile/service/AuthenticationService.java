@@ -1,9 +1,7 @@
 package com.fairuznadhirah.productprofile.service;
 
 import com.fairuznadhirah.productprofile.model.AuthenticationResponse;
-//import com.fairuznadhirah.productprofile.model.Token;
 import com.fairuznadhirah.productprofile.model.UserProfile;
-//import com.fairuznadhirah.productprofile.repository.TokenRepository;
 import com.fairuznadhirah.productprofile.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,7 +19,6 @@ public class AuthenticationService {
 
     private final JwtService jwtService;
 
-//    private final TokenRepository tokenRepository;
 
     private final AuthenticationManager authenticationManager;
 
@@ -32,7 +29,6 @@ public class AuthenticationService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
-//        this.tokenRepository = tokenRepository;
         this.authenticationManager = authenticationManager;
     }
 
@@ -54,7 +50,6 @@ public class AuthenticationService {
 
         String jwt = jwtService.generateToken(userProfile);
 
-//        saveUserToken(jwt, userProfile);
 
         return new AuthenticationResponse(jwt,"User registration was successful");
     }
@@ -70,17 +65,8 @@ public class AuthenticationService {
         UserProfile userProfile = userRepository.findByUsername(request.getUsername()).orElseThrow();
         String jwt = jwtService.generateToken(userProfile);
 
-//        saveUserToken(jwt, userProfile);
-
         return new AuthenticationResponse(jwt, "User login was successful");
     }
 
 
-//    private void saveUserToken(String jwt, UserProfile userProfile){
-//        Token token = new Token();
-//        token.setToken(jwt);
-//
-//        token.setUserProfile(userProfile);
-//        tokenRepository.save(token);
-//    }
 }
